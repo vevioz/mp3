@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpg|gif|png)$ [NC]
+RewriteRule ^watch?(.*)$/?$ index.php [NC,L]
+Options +FollowSymLinks -MultiViews
+RewriteRule youtube/(.*)/(.*)$ youtube.php?yt=$1&title=$2 [B]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)$ index2.php?link=$1 [QSA,L]
